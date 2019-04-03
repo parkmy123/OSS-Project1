@@ -89,10 +89,34 @@ void print_list()
 	printf("HAHA\n");
 }
 
-//리스트 데이터 삭제
+//리스트 데이터 제거
 void del_list()
 {
-	printf("HAHA\n");
+	int val;
+	node *pre; //제거할 값 이전의 노드를 찾기 위한 포인터
+	node *tmp = head;
+
+	printf("삭제할 데이터값 입력 : \n"); scanf_s("%d", &val);
+
+	while (tmp != NULL)
+	{
+		if (tmp->element == val)
+		{
+			pre = head;
+
+			while (pre->next != tmp) //없앨 노드 직전 노드 찾기
+				pre = pre->next;
+
+			pre->next = tmp->next; //없앨 노드의 이전 노드와 다음 노드 연결
+		}
+		else if (tmp->next == NULL) //값은 찾았으나 노드가 한 개일 경우
+			head = NULL;
+
+		tmp = tmp->next;
+	}
+
+	if (tmp == NULL)
+		printf("해당 데이터가 리스트에 없습니다.\n\n");
 }
 
 //리스트 데이터 검색
