@@ -12,6 +12,7 @@
 
 #include <stdio.h>
 #include <malloc.h>  
+
 // 노드 구조체 선언
 typedef struct cell {
 	int element;
