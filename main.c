@@ -11,7 +11,7 @@
 */
 
 #include <stdio.h>
-#include <malloc.h>  // GroovyCat 수정
+#include <malloc.h>  
 // 노드 구조체 선언
 typedef struct cell {
 	int element;
@@ -98,7 +98,7 @@ void del_list()
 //리스트 데이터 검색
 void search_list(node* head, int val)
 {
- 	node* cur = head; // 앞 노드
+ 	node* cur = head; 
 	int n = 1;  // ?번째 노드를 나타내는 변수
 	while (cur != NULL) {
 		node* tmp = cur->next; 
