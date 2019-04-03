@@ -122,6 +122,8 @@ void del_list()
 				pre = pre->next;
 
 			pre->next = tmp->next; //없앨 노드의 이전 노드와 다음 노드 연결
+			free(tmp); //제거한 노드는 메모리 해제
+			return;
 		}
 
 		tmp = tmp->next;
