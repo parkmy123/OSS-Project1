@@ -86,11 +86,11 @@ void insert_end_of_list(int val)
 //연결리스트 출력
 void print_list()
 {
-	cell * print;
+	node * print;
 	print = head;
 	
 	if(print == NULL){
-	printf("리스트가 존재 하지 않습니다...");
+	printf("리스트가 존재 하지 않습니다...\n");
 	return;
 	}
 	
@@ -99,7 +99,7 @@ void print_list()
 		print =print->next;
 	}
 	
-	printf (" %d ",print->element);
+	printf (" %d \n",print->element);
 	
 }
 
