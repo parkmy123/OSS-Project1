@@ -109,8 +109,6 @@ void del_list()
 
 			pre->next = tmp->next; //없앨 노드의 이전 노드와 다음 노드 연결
 		}
-		else if (tmp->next == NULL) //값은 찾았으나 노드가 한 개일 경우
-			head = NULL;
 
 		tmp = tmp->next;
 	}
