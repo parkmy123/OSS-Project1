@@ -86,7 +86,21 @@ void insert_end_of_list(int val)
 //연결리스트 출력
 void print_list()
 {
-	printf("HAHA\n");
+	cell * print;
+	print = head;
+	
+	if(print == NULL){
+	printf("리스트가 존재 하지 않습니다...");
+	return;
+	}
+	
+	while(print->next != NULL){
+	printf(" %d - " ,print->element);
+		print =print->next;
+	}
+	
+	printf (" %d ",print->element);
+	
 }
 
 //리스트 데이터 제거
