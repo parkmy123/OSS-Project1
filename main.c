@@ -25,7 +25,7 @@ node *tail = NULL;
 void insert_head_of_list(int val);  
 void insert_end_of_list(int val);   
 void print_list();                  
-void del_list();                    
+void del_list(int val);                    
 void search_list(node* head, int val); // 검색하고자 하는 데이터를 입력해 해당 데이터가 몇번째 노드에 있는지 확인하는 함수 
 
 int main(void)
