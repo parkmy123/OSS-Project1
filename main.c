@@ -53,7 +53,10 @@ int main(void)
 		else if (check == 2)
 			insert_end_of_list(num);
 		else if (check == 3)
-			del_list();
+		{
+			printf("삭제할 데이터 입력 : "); scanf_s("%d", &num);
+			del_list(num);
+		}
 		else if (check == 4) {
 			printf("검색하고자 하는 값을 입력하세요 : ");
 			scanf_s("%d", &num);
@@ -126,24 +129,20 @@ void print_list()
 	
 }
 
-//리스트 데이터 제거
-void del_list()
+//리스트 삭제
+void del_list(int val)
 {
-	int val;
-	node *pre; //제거할 값 이전의 노드를 찾기 위한 포인터
+	node *pre;
 	node *tmp = head;
 
-	printf("삭제할 데이터값 입력 : \n"); scanf_s("%d", &val);
-
-	if (tmp->next == NULL) //노드가 한 개일 경우
+	if (head == NULL) //리스트가 비어있을 경우
+		printf("리스트가 비었습니다.\n\n");
+	else if (tmp->next == NULL) //리스트가 하나뿐일 경우
 	{
 		if (tmp->element == val)
-		{
 			head = NULL;
-			return;
-		}
 		else
-			printf("해당 데이터가 리스트에 없습니다.");
+			printf("해당 데이터가 없습니다.\n\n");
 	}
 	else
 	{
@@ -152,20 +151,28 @@ void del_list()
 			if (tmp->element == val)
 			{
 				pre = head;
+				
+				if (head == tmp) //삭제하려는 노드가 리스트 첫번째 노드일 경우
+					head = tmp->next;
+				else
+				{
+					//삭제하려는 노드의 이전 노드 찾기
+					while (pre->next != tmp)
+						pre = pre->next;
 
-				while (pre->next != tmp) //없앨 노드 직전 노드 찾기
-					pre = pre->next;
-
-				pre->next = tmp->next; //없앨 노드의 이전 노드와 다음 노드 연결
+					//삭제할 노드의 이전 노드와 다음 노드 연결
+					pre->next = tmp->next;
+				}
+				//빠진 노드는 메모리 해제
 				free(tmp);
 				return;
 			}
 
 			tmp = tmp->next;
 		}
-
+		//지우려는 데이터를 찾지 못했을 때
 		if (tmp == NULL)
-			printf("해당 데이터가 리스트에 없습니다.\n\n");
+			printf("해당 데이터가 없습니다.\n\n");
 	}
 }
 
