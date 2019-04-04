@@ -57,11 +57,7 @@ int main(void)
 		else if (check == 4) {
 			printf("검색하고자 하는 값을 입력하세요 : ");
 			scanf_s("%d", &num);
-			if (num == head->num) {
-				searchNode(head, num);
-			}
-			else
-				printf("원하시는 값이 리스트에 없습니다.\n");
+			searchNode(head, num);
 			continue;
 		}
 		else if (check == 5)
@@ -182,8 +178,12 @@ void search_list(node* head, int val)
 		node* tmp = cur->next; 
 		if (val == cur->element) {
 			printf("%d 번째 노드에 있습니다.\n", n);
+			break;
 		}
 		n++;
 		cur = tmp;
+	}
+	if (cur == NULL) {
+		printf("원하시는 값이 리스트에 없습니다.\n");
 	}
 }
