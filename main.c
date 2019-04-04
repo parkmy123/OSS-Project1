@@ -20,6 +20,7 @@ typedef struct cell {
 }node;
 
 node *head = NULL;
+node *tail = NULL;
 
 void insert_head_of_list(int val);  
 void insert_end_of_list(int val);   
@@ -75,13 +76,38 @@ int main(void)
 //앞에 데이터 삽입
 void insert_head_of_list(int val)
 {
-	printf("HAHA\n");
+	node *tmp;
+	tmp = (node*)malloc(sizeof(node));
+
+	tmp->element = val;
+	tmp->next = head;
+	head = tmp;
 }
 
 //뒤에 데이터 삽입
 void insert_end_of_list(int val)
 {
-	printf("HAHA\n");
+	node *tmp;
+
+	tmp = (node*)malloc(sizeof(node));
+
+	tmp->element = val;
+	tmp->next = NULL;
+	tail = head;
+
+	if (head == NULL)
+	{
+		head = tmp;
+	}
+	else
+	{
+		while ((tail->next) != NULL)
+		{
+			tail = tail->next;
+		}
+
+		tail -> next = tmp;
+	}
 }
 
 //연결리스트 출력
