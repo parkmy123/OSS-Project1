@@ -51,23 +51,19 @@ int main(void)
 		if (check == 1) {
 			printf("데이터 입력 : "); scanf_s("%d", &num);
 			insert_head_of_list(num);
-			continue;
 		}
 		else if (check == 2) {
 			printf("데이터 입력 : "); scanf_s("%d", &num);
 			insert_end_of_list(num);
-			continue;
 		}
 		else if (check == 3) {
 			printf("삭제할 데이터 입력 : "); scanf_s("%d", &num);
 			del_list(num);
-			continue;
 		}
 		else if (check == 4) {
 			printf("검색하고자 하는 값을 입력하세요 : ");
 			scanf_s("%d", &num);
 			search_list(head, num);
-			continue;
 		}
 		else if (check == 5) {
 			print_list();
